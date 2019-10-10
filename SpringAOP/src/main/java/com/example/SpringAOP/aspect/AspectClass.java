@@ -1,5 +1,6 @@
 package com.example.SpringAOP.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -59,18 +60,33 @@ public class AspectClass {
 	}
 	*/
 	
-	//combining advices 
+	/*combining advices 
 	
 	@Before("pointCutForAllGetters() && getAllCircleMethods()")
 	public void loggingAdvice() {
 		System.out.println("calling before aspect");
 	}
+	*/
 	
 	
+	//Using JOIN POINTS
+	@Before("getAllCircleMethods()")
+	public void loggingAdvice(JoinPoint joinPoint) {
+		System.out.println(joinPoint.toString()+" :: calling before aspect");
+		//System.out.println(joinPoint.getTarget());
+	}
+	
+	@Before("args(name)")
+	public void stringArgMethod(String name) {
+		System.out.println("this is called for method having one argument");
+	}
+	
+	/*
 	@Before("pointCutForAllGetters()")
 	public void secondAdvice() {
 		System.out.println("second advice executed..");
 	}	
+	*/
 	
 	// PointCuts to use
 	
