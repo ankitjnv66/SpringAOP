@@ -19,10 +19,13 @@ public class SpringAopApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		shapeService.getCircle().setName("setting name as circle..");
-		System.out.println(shapeService.getCircle().getName());
+		//shapeService.getCircle().setName("setting name as circle..");
+		//System.out.println(shapeService.getCircle().getName());
 		//System.out.println(shapeService.getTriangle().getName());
-		
+		//shapeService.getCircle().returningMethod();
+		//shapeService.getTriangle().checkException();
+		//shapeService.getTriangle().aroundCheck();
+		shapeService.getTriangle().checkingCustomAnnotation();
 	}
 
 }
